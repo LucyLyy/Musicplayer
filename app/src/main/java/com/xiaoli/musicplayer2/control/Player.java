@@ -70,11 +70,11 @@ public class Player extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acitivity_player);
-        //初始化数据
+        //  初始化数据
         initData();
-        //初始化界面
+        //  初始化界面
         initView();
-        //初始化控件的点击事件
+        //  初始化控件的点击事件
         initEvent();
         initService();
         initBindService();
@@ -110,9 +110,9 @@ public class Player extends AppCompatActivity {
         mList =findViewById(R.id.player_list);
 
         mPic = findViewById(R.id.player_pic);
-        //设置背景图片
+        //  设置背景图片
         Glide.with(mPic.getContext()).load(mMusicInfo.getPicUrl()).into(mPic);
-        //设置下载的接收器，当接收到数据后会通知前台
+        //  设置下载的接收器，当接收到数据后会通知前台
         sHandler = new Handler(new Handler.Callback() {
             @Override
             public boolean handleMessage(@NonNull Message msg) {
@@ -132,7 +132,7 @@ public class Player extends AppCompatActivity {
             mRotation.start();
             return;
         }
-        //设置旋转动画
+        //  设置旋转动画
         mRotation = ObjectAnimator
                 .ofFloat(mPic, "rotation", 0,360)
                 .setDuration(15000);
@@ -152,12 +152,12 @@ public class Player extends AppCompatActivity {
         mSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                //当进度条进度发生改变
+                //  当进度条进度发生改变
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                //当开始触摸进度条
+                //  当开始触摸进度条
                 isTouch = true;
             }
 
@@ -171,7 +171,7 @@ public class Player extends AppCompatActivity {
             }
         });
 
-        //开始或暂停按钮播放按钮的点击事件
+        //  开始或暂停按钮播放按钮的点击事件
         mSp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -181,14 +181,14 @@ public class Player extends AppCompatActivity {
             }
         });
 
-        //添加喜欢的音乐的点击事件
+        // 添加喜欢的音乐的点击事件
         mLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new CRUD().likeAdd(getApplicationContext(),mPosition);
             }
         });
-        //添加到列表音乐的点击事件
+        // 添加到列表音乐的点击事件
         mList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -196,7 +196,7 @@ public class Player extends AppCompatActivity {
             }
         });
 
-        //添加下载按钮的点击事件
+        // 添加下载按钮的点击事件
         mDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -208,7 +208,7 @@ public class Player extends AppCompatActivity {
         });
 
 
-        //上一首音乐按钮实现
+        // 上一首音乐按钮实现
         mLast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

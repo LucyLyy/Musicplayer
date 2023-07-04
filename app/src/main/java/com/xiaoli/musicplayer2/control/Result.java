@@ -126,7 +126,7 @@ public class Result extends AppCompatActivity {
         });
 
     }
-    //更新UI
+    // 更新UI
     private void update() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mAdapter.setData();
